@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Basics</title>
+	</head>
+
+	<style>
+		.body {
+			background-color: pink;
+		}
+
+		.title {
+			color: white;
+			font-size: 300%;
+			text-align: center;
+		}
+
+		.image-container {
+			display:flex;
+			flex-direction: row;
+			align-items: center;
+			width: fit-content;
+			justify-self: center;
+
+			padding: 4px;
+			gap: 4px;
+		}
+
+		.item-container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+		}
+
+		.image-item {
+			border-radius: 12px;
+			max-width: 480px;
+			max-height: 320px;
+		}
+
+		p {
+			justify-self: right;
+			font-style: italic;
+			font-family: monospace;
+		}
+
+		hr {
+			color: purple;
+			margin: 0;
+			padding: 0;
+		}
+	</style>
+
+	<body class="body">
+		<h1 class="title">Loja #42 - Eletronicos</h1>
+
+		<div class="image-container">
+			<div class="item-container">
+				<img src="./NintendoSwitch2.jpg" alt="" class="image-item">
+				<a href="https://www.amazon.com.br/Nintendo-Nacional-Port%C3%A1til-Dom%C3%A9stico-Garantia/dp/B0F6D7MQQB">Comprar</a>
+			</div>
+			<div class="item-container">
+				<img src="./PS5.webp" alt="" class="image-item">
+				<a href="https://www.amazon.com.br/PlayStation-Slim-Controle-Branco-Sony/dp/B0GWNFMG5L?source=ps-sl-shoppingads-lpcontext&ref_=fplfs&psc=1&smid=A27TBZFHKSTLIW">Comprar</a>
+			</div>
+		</div>
+		<hr>
+		<p>© rescote 2026</p>
+	</body>
+</html>
