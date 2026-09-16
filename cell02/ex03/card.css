@@ -1,0 +1,44 @@
+html {
+	background-color: lightgray;
+}
+
+.card-table {
+	font-family: monospace;
+	text-align: center;
+	background-color: white;
+}
+
+.pfp {
+	max-width: 160px;
+	max-height: 160px;
+}
+
+.card-info {
+	color: lightslategray;
+}
+
+.card-location {
+	font-style: bold;
+}
+
+.card-social {
+	max-width: 20px;
+	max-height: 20px;
+}
+
+.card-button {
+	width: 100%;
+	height: 100%;
+	border-radius: 0px;
+	border: 0px;
+	padding: 2px;
+	background-color: slategray;
+}
+
+.card-button:hover  {
+	background-color: rgb(100, 100, 120);
+}
+
+.card-button:active {
+	background-color: lightslategray;
+}

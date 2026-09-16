@@ -1,0 +1,7 @@
+.calc-output {
+	border: 1px slategrey solid;
+	border-radius: 8px;
+	width: 480px;
+	text-align: right;
+	padding: 4px;
+}

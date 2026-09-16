@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculadora</title>
+		<link rel="stylesheet" href="./calc.css">
+	</head>
+
+	<body>
+		<div class="calc-container">
+			<div class="calc-output">
+				<p id="calc_output">Output</p>
+			</div>
+			<div class="operation-container">
+				<input id="calc_input_1" class="calc-input" type="number">
+				<select name="operator" id="operator_dropdown">
+					<option value="+">+</option>
+					<option value="-">-</option>
+					<option value="*">*</option>
+					<option value="/">/</option>
+					<option value="%">%</option>
+				</select>
+				<input id="calc_input_2" class="calc-input" type="number">
+				<button id="calc_btn">Try me!</button>
+			</div>
+		</div>
+
+		<script src="./calc.js"></script>
+	</body>
+</html>
