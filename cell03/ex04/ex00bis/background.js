@@ -1,9 +1,9 @@
-const body = document.getElementById("body");
-function changeBackgroundColor() {
+$(function() {
+	$(".button-change").on("click", function() {
+		const r = Math.random() * 255;
+		const g = Math.random() * 255;
+		const b = Math.random() * 255;
 
-	const r = Math.random() * 255;
-	const g = Math.random() * 255;
-	const b = Math.random() * 255;
-
-	body.style.backgroundColor = 'rgb(' + r + ',' + g + ',' + b + ')';
-}
+		$("#body").css("background-color", `rgb(${r}, ${g}, ${b})`);
+	});
+});

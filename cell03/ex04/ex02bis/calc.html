@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Calculadora</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	</head>
 
 	<style>
@@ -66,99 +67,88 @@
 
 		<script>
 
-		const output = document.getElementById("calc_output");
-		const input1 = document.getElementById("calc_input_1");
-		const input2 = document.getElementById("calc_input_2");
-		const operator = document.getElementById("operator_dropdown");
-		const button = document.getElementById("calc_btn");
+		$(function () {
+			const $output = $("#calc_output");
+			const $input1 = $("#calc_input_1");
+			const $input2 = $("#calc_input_2");
+			const $operator = $("#operator_dropdown");
+			const $button = $("#calc_btn");
 
-		let inactivityTimeout;
+			let inactivityTimeout;
 
-		function resetTimeout() {
-			clearTimeout(inactivityTimeout);
-			inactivityTimeout = setTimeout(showAlert, 30000);
-		}
-
-		function showAlert() {
-			alert("Please use me...");
-		}
-
-		function onClick() {
-			let num1 = input1.value.trim();
-			let num2 = input2.value.trim();
-			let result;
-
-			if (num1 === "" || !/^-?\d+$/.test(num1)) {
-				console.log("Error :(");
-				output.innerText = "Error :(";
-				alert("Error :(");
-				return;
+			function resetTimeout() {
+				clearTimeout(inactivityTimeout);
+				inactivityTimeout = setTimeout(showAlert, 30000);
 			}
 
-			if (num2 === "" || !/^-?\d+$/.test(num2)) {
-				console.log("Error :(");
-				output.innerText = "Error :(";
-				alert("Error :(");
-				return;
+			function showAlert() {
+				alert("Please use me...");
 			}
 
-			num1 = Number(num1);
-			num2 = Number(num2);
-
-			if (num1 < 0 || num2 < 0) {
-				console.log("Error :(");
-				output.innerText = "Error :(";
-				alert("Error :(");
-				return;
+			function sendMessage(message) {
+				console.log(message);
+				$output.html(message);
+				alert(message);
 			}
 
-			switch(operator.value) {
-				case "+":
-					result = num1 + num2;
-					break;
+			$button.on("click", function() {
+				let num1 = $input1.val().trim();
+				let num2 = $input2.val().trim();
+				let result;
 
-				case "-":
-					result = num1 - num2;
-					break;
+				if (num1 === "" || !/^-?\d+$/.test(num1)) {
+					sendMessage("Error :(")
+					return;
+				}
 
-				case "*":
-					result = num1 * num2;
-					break;
+				if (num2 === "" || !/^-?\d+$/.test(num2)) {
+					sendMessage("Error :(")
+					return;
+				}
 
-				case "/":
-					if (num2 === 0) {
-						console.log("It's over 9000!");
-						output.innerText = "It's over 9000!";
-						alert("It's over 9000!");
-						return;
-					}
-					result = num1 / num2;
-					break;
+				num1 = Number(num1);
+				num2 = Number(num2);
 
-				case "%":
-					if (num2 === 0) {
-						console.log("It's over 9000!");
-						output.innerText = "It's over 9000!";
-						alert("It's over 9000!");
-						return;
-					}
-					result = num1 % num2;
-					break;
-			}
+				if (num1 < 0 || num2 < 0) {
+					sendMessage("Error :(")
+					return;
+				}
 
-			console.log(result);
-			output.innerText = result;
-			alert(result);
-		}
+				switch($operator.val()) {
+					case "+":
+						result = num1 + num2;
+						break;
 
-		button.addEventListener("click", onClick);
+					case "-":
+						result = num1 - num2;
+						break;
 
-		window.onmousemove = resetTimeout;
-		window.onmousedown = resetTimeout;
-		window.onkeydown = resetTimeout;
-		window.onscroll = resetTimeout;
+					case "*":
+						result = num1 * num2;
+						break;
 
-		resetTimeout();
+					case "/":
+						if (num2 === 0) {
+							sendMessage("It's over 9000!")
+							return;
+						}
+						result = num1 / num2;
+						break;
+
+					case "%":
+						if (num2 === 0) {
+							sendMessage("It's over 9000!")
+							return;
+						}
+						result = num1 % num2;
+						break;
+				}
+
+				sendMessage(result);
+			});
+
+			resetTimeout();
+		});
 
 		</script>
 	</body>

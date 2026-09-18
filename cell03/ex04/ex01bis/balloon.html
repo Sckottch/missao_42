@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>Ballon</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 	</head>
 
 	<style>
@@ -28,56 +29,60 @@
 
 		<script>
 
-		const circle = document.getElementById("circle");
+		$(function() {
+			const $circle = $("#circle");
 
-		let size = 200;
-		let index = 0;
+			let size = 200;
+			let index = 0;
 
-		const maxSize = 420;
-		const minSize = 200;
-		const colors = ["red", "green", "blue"]
+			const maxSize = 420;
+			const minSize = 200;
+			const colors = ["red", "green", "blue"]
 
-		function onClick() {
-			const step = 10;
-
-			size += step;
-			console.log("O Balao aumentou, tamanho atual: " + size)
-
-			index++;
-			if (index >= colors.length) {
-				index = 0;
+			function render() {
+				$circle.css({
+					width: size + "px",
+					height: size + "px",
+					backgroundColor: colors[index]
+				})
 			}
 
-			if (size > maxSize) {
-				size = minSize;
-				console.log("Balao estourou");
-			}
+			$circle.on("click", function() {
+				const step = 10;
 
-			circle.style.width = size + "px";
-			circle.style.height = size + "px";
-			circle.style.backgroundColor = colors[index];
-		}
+				size += step;
+				console.log("O Balao aumentou, tamanho atual: " + size)
 
-		function onMouseLeave() {
-			if (size === minSize) return;
+				index++;
+				if (index >= colors.length) {
+					index = 0;
+				}
 
-			const step = 5;
+				if (size > maxSize) {
+					size = minSize;
+					console.log("Balao estourou");
+				}
 
-			size = Math.max(minSize, size - step);
-			console.log("O Balao diminuiu, tamanho atual: " + size);
+				render()
+			});
 
-			index--;
-			if (index < 0) {
-				index = colors.length - 1;
-			}
+			$circle.on("mouseleave", function() {
+				if (size === minSize) return;
 
-			circle.style.width = size + "px";
-			circle.style.height = size + "px";
-			circle.style.backgroundColor = colors[index];
-		}
+				const step = 5;
 
-		circle.addEventListener("click", onClick);
-		circle.addEventListener("mouseleave", onMouseLeave);
+				size = Math.max(minSize, size - step);
+				console.log("O Balao diminuiu, tamanho atual: " + size);
+
+				index--;
+				if (index < 0) {
+					index = colors.length - 1;
+				}
+
+				render();
+			});
+		})
+
 
 		</script>
 	</body>
