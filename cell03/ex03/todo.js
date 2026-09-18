@@ -1,5 +1,6 @@
 const ftList = document.getElementById("ft_list");
 const addButton = document.getElementById("add_btn");
+
 const oneYear = 60 * 60 *24 * 365;
 const key = 'taskList'
 

@@ -1,0 +1,126 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.parallax {
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+body {
+    background-image: url("../images/upscalemedia-transformed.jpeg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    font-family: Arial, Helvetica, sans-serif;
+    color: crimson;
+    min-height: 100vh;
+}
+
+
+header {
+    background-color: #0f172a;
+    color: crimson;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+header p {
+    font-size: 18px;
+}
+
+main {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #0f172a;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 28px;
+}
+
+.links {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.integrante {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 250px;
+}
+
+.integrante img {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 4px solid crimson;
+}
+
+.links a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    background-color: crimson;
+    color: white;
+    padding: 16px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.links a:hover {
+    background-color: #4c0519;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    header p {
+        font-size: 16px;
+    }
+
+    main {
+        margin: 30px 15px;
+        padding: 20px;
+    }
+
+    .links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .integrante {
+        width: 100%;
+        max-width: 250px;
+    }
+}
